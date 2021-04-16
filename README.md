@@ -16,3 +16,8 @@ Use as many different DOM-manipulation methods as possible.
 
 You are not allowed to do innerHTML or similar hacks to make your full HTML structure using HTML string. However, you can use it few times for some smaller pieces.
 
+### BONUS
+
+Add a form handler. 
+
+When the form is submitted, replace the form with the message: "You are logged in successfully as {email}" (replace {email} with the email from form)
