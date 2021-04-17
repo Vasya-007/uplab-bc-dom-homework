@@ -6,6 +6,7 @@ docReady(() => {
   const root = document.getElementById("root");
   //CREATE
   const containerDiv = document.createElement('div');
+  const message = document.createElement('div');
     const main = document.createElement('main');
       const divCol = document.createElement('div');
         const h2 = document.createElement('h2');
@@ -38,6 +39,7 @@ docReady(() => {
   buttonRow3.className = 'w-100 btn btn-primary btn-lg'
   spanRow1.className = 'text-muted'
   spanRow2.className = 'text-muted'
+  message.className = 'text-center'
 
   //ATTRIBITE
 labelRow1.setAttribute('for','email')
@@ -46,6 +48,8 @@ inputRow1.setAttribute('placeholder','you@example.com')
 labelRow2.setAttribute('for','password')
 inputRow2.setAttribute('type','password')
 buttonRow3.setAttribute('type','submit')
+form.setAttribute('onsubmit','return false')
+message.hidden = true
 
   //ID
 inputRow1.id = 'email'
@@ -55,13 +59,16 @@ inputRow2.id = 'password'
   const labelRow1Text = document.createTextNode('Email')
   const labelRow2Text = document.createTextNode('Password ')
   const buttonRow3Text = document.createTextNode('Submit')
+ 
   //APPENDTEXT
   h2.appendChild(texth2)
   labelRow1.appendChild(labelRow1Text)
   labelRow2.appendChild(labelRow2Text)
   buttonRow3.appendChild(buttonRow3Text)
-  //APPEND
+  
+ //APPEND
  document.querySelector('div').appendChild(containerDiv)
+ document.querySelector('div').appendChild(message)
  document.querySelector('.container').appendChild(main)
  document.querySelector('.justify-content-center').appendChild(divCol)
  document.querySelector('.col-md-7').appendChild(h2)
@@ -82,4 +89,11 @@ inputRow2.id = 'password'
  //ROW 3
  document.querySelector('.g-3').appendChild(divRow3)
  childIndex.children[2].appendChild(buttonRow3)
+
+buttonRow3.onclick = () =>{
+  containerDiv.hidden = true;
+  message.hidden = false
+  const messegeText = document.createTextNode(`Yіou are logged in successfully as ${inputRow1.value}`)
+  message.appendChild(messegeText)
+}
 });
